@@ -1,0 +1,24 @@
+{
+    "jwebApp": {
+        "cartProductList" : {
+            "home": {
+                "title": "CartProductLists",
+                "createLabel": "Créer un nouveau CartProductList",
+                "createOrEditLabel": "Créer ou éditer un CartProductList"
+            },
+            "created": "Un nouveau CartProductList a été créé avec l'identifiant {{ param }}",
+            "updated": "Le CartProductList avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le CartProductList avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le CartProductList {{ id }} ?"
+            },
+            "detail": {
+                "title": "CartProductList"
+            },
+            "quantity": "Quantité",
+            "cart": "Panier",
+            "product": "Produit"
+        }
+    }
+}
+

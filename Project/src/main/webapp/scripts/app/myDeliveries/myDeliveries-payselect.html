@@ -1,0 +1,42 @@
+<div>
+    <div class="modal-header">
+        <h1>
+            <span translate="jwebApp.delivery.detail.title">Delivery</span>
+            :
+            <span style="font-size: 80%; color: #777;" translate="jwebApp.delivery.detail.states.payselect"></span>
+        </h1>
+    </div>
+
+    <jh-alert></jh-alert>
+
+    <div class="modal-body">
+
+        <form naùe="selectPayment">
+            <table class="table" id="payments">
+                <tbody>
+                <tr ng-repeat="payment in payments">
+                    <td class="payment">
+                        <input type="radio" name="payment" value="payment" ng-click="selectPayment(payment)">
+                        <img class="img-responsive" src="{{payment.image}}"/>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+
+        <div class="modal-footer">
+            <div class="pull-left">
+                <button class="btn btn-primary" ng-click="backAndSave()">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                    <span translate="entity.action.back">&nbsp;</span>
+                </button>
+            </div>
+            <div class="pull-right">
+                <button class="btn btn-primary" ng-click="nextAndSave()">
+                    <span translate="jwebApp.delivery.detail.states.confirm">&nbsp;</span>
+                    <span class="glyphicon glyphicon-arrow-right"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

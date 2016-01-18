@@ -1,0 +1,52 @@
+<div>
+    <h2 translate="jwebApp.subscription.home.title">Subscriptions</h2>
+    <jh-alert></jh-alert>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" ui-sref="subscription.new">
+                    <span class="glyphicon glyphicon-flash"></span> <span translate="jwebApp.subscription.home.createLabel">Create a new Subscription</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr jh-sort="predicate" ascending="reverse" callback="reset()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="idMarketPlace"><span translate="jwebApp.subscription.idMarketPlace">IdMarketPlace</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="user.login"><span translate="jwebApp.subscription.user">user</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="loadPage(page + 1)" infinite-scroll-disabled="links['last'] == page">
+                <tr ng-repeat="subscription in subscriptions track by subscription.id">
+                    <td><a ui-sref="subscription.detail({id:subscription.id})">{{subscription.id}}</a></td>
+                    <td>{{subscription.idMarketPlace}}</td>
+                    <td>
+                        {{subscription.user.login}}
+                    </td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="subscription.detail({id:subscription.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="subscription.edit({id:subscription.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="subscription.delete({id:subscription.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

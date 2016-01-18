@@ -1,0 +1,103 @@
+<div>
+    <div class="modal-header">
+        <div class="col-md-3 text-center">
+            <img class="img-responsive" src="{{marketPlace.image}}"/>
+        </div>
+
+        <h1><a href="#/marketPlaces/{{marketPlace.id}}">{{marketPlace.name}}</a></h1>
+
+
+        <p class="lead text-align" translate="jwebApp.myMarketPlace.home.subtitle"></p>
+        <hr style="border-color:#E6E6E6;">
+
+        <div class="rating pull-right">
+            <span class="stars hidden" title="{{marketPlace.rating}}">{{marketPlace.rating}}</span>
+        </div>
+        <div class="pull-right">
+            <span translate="jwebApp.marketPlace.rating"></span> :
+        </div>
+
+        <button class="btn btn-primary" ui-sref="myMarketPlace">
+            <span translate="jwebApp.marketPlace.detail.title">&nbsp;</span>
+        </button>
+        <button class="btn btn-primary" ui-sref="myMarketPlace.products">
+            <span translate="jwebApp.marketPlace.action.gestProducts">&nbsp;</span>
+        </button>
+        <button class="btn btn-primary" ui-sref="myMarketPlace.stock">
+            <span translate="jwebApp.marketPlace.action.gestStock">&nbsp;</span>
+        </button>
+        <button class="btn btn-primary" ui-sref="myMarketPlace.promotions">
+            <span translate="jwebApp.marketPlace.action.gestPromotions">&nbsp;</span>
+        </button>
+
+    </div>
+    <jh-alert></jh-alert>
+
+    <br>
+
+    <div class="form-group">
+        <div class="col-md-2">
+            <input id="field_date" type="text"
+                   class="form-control" uib-datepicker-popup="{{dateformat}}"
+                   ng-model="date" is-open="datePickerForDate.status.opened"
+                   ng-change="parseDate()"/>
+
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="datePickerForDateOpen($event)">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+            </span>
+        </div>
+        <div class="col-md-4">
+            <input type="string" name="path"
+                   value="" ng-model="path"
+                   ng-change="parseName()">
+        </div>
+        <button type="submit"
+                ui-sref="myMarketPlace.addNews()"
+                class="btn btn-primary btn-sm pull-right">
+            <span class="glyphicon glyphicon-plus-sign"></span>&nbsp;<span
+            translate="jwebApp.marketPlace.action.addNews"></span>
+        </button>
+    </div>
+    <br>
+    <br>
+
+    <div class="modal-body">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr jh-sort="predicate" ascending="reverse" callback="reset()">
+                    <th jh-sort-by="date"><span translate="jwebApp.news.date">Date</span></th>
+                    <th jh-sort-by="title"><span translate="jwebApp.news.title">Title</span></th>
+                    <th jh-sort-by="content"><span translate="jwebApp.news.content">Content</span></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody infinite-scroll="loadPage(page + 1)" infinite-scroll-disabled="links['last'] == page">
+                <tr ng-repeat="news in marketPlace.news track by news.id">
+                    <td>{{news.date | date:'medium'}}</td>
+                    <td>{{news.title}}</td>
+                    <td>{{news.content}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+
+        </div>
+    </div>
+    <script type="text/javascript">
+        $.fn.stars = function() {
+            return $(this).each(function() {
+                $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+            });
+        };
+
+        $(function() {
+            window.setTimeout(function(){
+                $('span.stars').stars().removeClass('hidden');
+            }, 500);
+        });
+    </script>
+</div>

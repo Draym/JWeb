@@ -1,0 +1,65 @@
+<div ng-cloak>
+    <div class="modal-header">
+        <span class="hipster img-responsive img-rounded"></span>
+
+        <h1 translate="main.title" style="text-align: center;">Welcome, Java Hipster!</h1>
+
+    </div>
+    <div class="modal-body">
+        <h4>
+            <span translate="main.detail.market"></span>
+            <a href="#/marketPlaces/1">
+                <button class="btn btn-info">
+                    <span translate="main.detail.marketButton">&nbsp;</span>
+                </button>
+            </a>
+        </h4>
+        <br>
+        <h3>
+            <span translate="main.detail.news"></span>
+        </h3>
+
+        <table class="table" id="allNews" style="font-size:90%;">
+            <tbody>
+            <tr ng-repeat="news in marketPlace.news">
+                <td class="news">
+                    <div class="news">
+                        <h4>
+                            <span style="font-size: 110%;">{{news.title}}</span>
+                        </h4>
+
+
+                        <span class="date">{{news.date | date:'medium'}}</span>
+                        <br>
+                        <span>{{news.content}}</span>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="modal-footer">
+            <div class="col-md-8">
+                <div ng-switch="isAuthenticated()">
+                    <div class="alert alert-success pull-left" ng-switch-when="true" translate="main.logged.message"
+                         translate-values="{username: '{{account.login}}'}">
+                        You are logged in as user "{{account.login}}".
+                    </div>
+
+                    <div class="alert alert-warning pull-left" ng-switch-when="false"
+                         translate="global.messages.info.authenticated">
+                        If you want to <a class="alert-link" href="#/login">sign in</a>, you can try the default
+                        accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and
+                        password="user").
+                    </div>
+
+                    <div class="alert alert-warning pull-left" ng-switch-when="false"
+                         translate="global.messages.info.register">
+                        You don't have an account yet? <a class="alert-link" href="#/register">Register a new
+                        account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

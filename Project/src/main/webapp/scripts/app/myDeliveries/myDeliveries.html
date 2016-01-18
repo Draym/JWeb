@@ -1,0 +1,72 @@
+<div>
+    <h2 translate="jwebApp.myDeliveries.home.title">All Deliveries</h2>
+    <jh-alert></jh-alert>
+
+    <div class="modal-header">
+        <div class="form-group">
+            <div class="parser">
+                <div class="pull-left">
+                    <span translate="jwebApp.myDeliveries.values.numero">Command Number</span> :
+                    <input type="string" name="id"
+                           value="" ng-model="id"
+                           ng-change="parseID()">
+                </div>
+                <div class="pull-right">
+                    <span translate="jwebApp.myDeliveries.values.status">Command Status</span> :
+                    <select name="selectStatus" id="selectStatus"
+                            ng-options="state as state.name for state in status"
+                            ng-model="state"
+                            ng-change="parseStatus()">
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr jh-sort="predicate" ascending="reverse" callback="reset()">
+                <th jh-sort-by="id"><span translate="jwebApp.myDeliveries.values.numero">Command Number"></span></th>
+                <th jh-sort-by="status.name"><span translate="jwebApp.delivery.status">status</span></th>
+                <th jh-sort-by="payment.name"><span translate="jwebApp.delivery.payment">payment</span></th>
+                <th jh-sort-by="cart.name"><span translate="jwebApp.delivery.associatedCart">associatedCart</span></th>
+                <th jh-sort-by="cart.name"><span>Total</span></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll="loadPage(page + 1)" infinite-scroll-disabled="links['last'] == page">
+            <tr ng-repeat="delivery in deliveries track by delivery.id">
+                <td>
+                    {{delivery.id}}</td>
+                <td>
+                    {{delivery.status.name}}
+                </td>
+                <td>
+                    {{delivery.payment.name}}
+                </td>
+                <td>
+                    <a href="#/MyCarts/{{delivery.cart.id}}/detail">{{delivery.cart.name}}</a>
+                </td>
+                <td>
+                    {{delivery.total | currency}}
+                </td>
+                <td>
+                    <button type="submit"
+                            ui-sref="delivery.detail({id:delivery.id})"
+                            class="btn btn-info btn-sm">
+                        <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span
+                        translate="entity.action.view"> View</span>
+                    </button>
+                    <button type="submit"
+                            ng-click="continueDelivery(delivery.id)"
+                            class="btn btn-primary btn-sm">
+                        <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span
+                        translate="entity.action.continue"> Continue</span>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

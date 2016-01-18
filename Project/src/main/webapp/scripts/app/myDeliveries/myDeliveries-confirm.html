@@ -1,0 +1,95 @@
+<div>
+    <div class="modal-header">
+        <h1>
+            <span translate="jwebApp.delivery.detail.title">Delivery</span>
+            :
+            <span style="font-size: 80%; color: #777;" translate="jwebApp.delivery.detail.states.confirm"></span>
+        </h1>
+    </div>
+
+    <jh-alert></jh-alert>
+
+    <div class="modal-body">
+        <div class="cartContainer">
+            <h3>
+                <span translate="jwebApp.delivery.cart"></span>
+                :
+            </h3>
+
+            <div ng-repeat="limit in [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30]">
+                <ul class="nav nav-pills nav-justified products">
+                    <li ng-repeat="productContainer in cartContainer.products | limitTo:3:limit">
+                        <div class="productContainer">
+                            <h4>
+                                <a href="#/product/{{productContainer.product.id}}">
+                                    <span style="font-size: 130%;">{{productContainer.product.baseProduct.name}}</span>
+                                </a>
+                            <span class="price"
+                                  ng-if="productContainer.product.promotion.percent == 0 && productContainer.product.promotion.reduction == 0">
+                                    {{productContainer.product.price | currency}}
+                            </span>
+                            <span class="price"
+                                  ng-if="productContainer.product.promotion.percent != 0 || productContainer.product.promotion.reduction != 0">
+                                <del>{{productContainer.product.price | currency}}</del>
+                                <ins>{{productContainer.product.price - productContainer.product.promotion.reduction -
+                                    productContainer.product.price * productContainer.product.promotion.percent / 100 |
+                                    currency}}
+                                </ins>
+                                <br/>
+                                <span ng-if="productContainer.product.promotion.reduction != 0">-{{productContainer.product.promotion.reduction | currency}}</span>
+                                <span ng-if="productContainer.product.promotion.percent != 0">-{{productContainer.product.promotion.percent}}%</span>
+                            </span>
+                            </h4>
+                            <h4>
+                                <br>
+
+                                <div class="quantity">
+                                    <span translate="jwebApp.cartProductList.quantity"></span>
+                                    <span>: {{productContainer.quantity}}</span>
+                                </div>
+                            </h4>
+
+                            <img class="img-responsive" src="{{productContainer.product.baseProduct.image}}"/>
+                            <hr/>
+
+                            <div class="description">{{productContainer.product.baseProduct.description}}</div>
+
+                            <hr/>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="payment">
+            <h3>
+                <span translate="jwebApp.delivery.payment"></span>
+                :
+            </h3>
+            <img class="img-responsive" src="{{delivery.payment.image}}"/>
+        </div>
+        <hr>
+        <div class="total">
+            <h3>
+                <span class="pull-right">Total : {{deliveryTotal | currency}}</span>
+            </h3>
+        </div>
+        <br>
+        <br>
+
+        <div class="modal-footer">
+            <div class="pull-left">
+                <button class="btn btn-primary" ng-click="backAndSave()">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                    <span translate="entity.action.back">&nbsp;</span>
+                </button>
+            </div>
+            <div class="pull-right">
+                <button class="btn btn-primary" ng-click="nextAndSave()">
+                    <span translate="entity.action.confirm">&nbsp;</span>
+                    <span class="glyphicon glyphicon-arrow-right"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

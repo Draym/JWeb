@@ -1,0 +1,41 @@
+{
+    "jwebApp": {
+        "delivery" : {
+            "home": {
+                "title": "Commandes",
+                "createLabel": "Créer une nouvelle commande",
+                "createOrEditLabel": "Créer ou éditer une commande"
+            },
+            "created": "Une nouvelle commande a été créé avec l'identifiant {{ param }}",
+            "updated": "La commande avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "La commande avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer la commande {{ id }} ?"
+            },
+            "detail": {
+                "title": "Commande",
+                "states": {
+                    "create": "Creation de la commande",
+                    "payselect": "Sélection du paiement",
+                    "confirm": "Confirmation de la commande"
+                }
+            },
+            "status": "Statut",
+            "payment": "Paiement",
+            "user": "Utilisateur",
+            "cart": "Panier",
+            "associatedCart": "Panier associé"
+        },
+        "myDeliveries": {
+            "home": {
+                "title": "Mes commandes"
+            },
+            "values" : {
+                "numero": "N° de Commande",
+                "status": "Statut de la commande"
+            },
+            "toDelivery": "Passer la commande"
+        }
+    }
+}
+

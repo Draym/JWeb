@@ -1,0 +1,53 @@
+{
+    "jwebApp": {
+        "marketPlace": {
+            "home": {
+                "title": "Boutiques",
+                "createLabel": "Créer une nouvelle boutique",
+                "createOrEditLabel": "Créer ou éditer une boutique"
+            },
+            "created": "Une nouvelle boutique a été créé avec l'identifiant {{ param }}",
+            "updated": "La boutique avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "La boutique avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer la boutique {{ id }} ?"
+            },
+            "detail": {
+                "title": "Boutique"
+            },
+            "name": "Nom",
+            "image": "Image",
+            "description": "Description",
+            "rating": "Note",
+            "news": "News",
+            "user": "Utilisateur",
+            "product": "Produit",
+            "action": {
+                "sellOn": "Vendu sur : ",
+                "sellBy": "Vendu par : ",
+                "rating": "Note : ",
+                "sellers": "Vendu par: {{ param }} boutique(s)",
+                "gestProducts": "Gérer les Produits",
+                "gestNews": "Gérer les News",
+                "gestPromotions": "Vos Promotions",
+                "gestStock": "Votre Stock",
+                "addProduct": "Ajouter un product",
+                "addPromotion": "Ajouter une promotion",
+                "addNews": "Ajouter une News"
+            }
+        },
+        "myMarketPlace": {
+            "home": {
+                "title": "Ma Boutique",
+                "subtitle": "Bienvenue dans votre boutique",
+                "entry": "Bienvenue dans la boutique"
+            }
+        },
+        "allMarketPlaces": {
+            "home": {
+                "title": "Toutes les boutiques"
+            }
+        }
+    }
+}
+

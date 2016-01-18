@@ -1,0 +1,154 @@
+<div>
+    <div class="modal-header">
+        <div class="col-md-3 text-center">
+            <img class="img-responsive" src="{{marketPlace.image}}"/>
+        </div>
+
+        <h1><a href="#/marketPlaces/{{marketPlace.id}}">{{marketPlace.name}}</a></h1>
+
+
+        <p class="lead text-align" translate="jwebApp.myMarketPlace.home.subtitle"></p>
+        <hr style="border-color:#E6E6E6;">
+
+        <div class="rating pull-right">
+            <span class="stars hidden" title="{{marketPlace.rating}}">{{marketPlace.rating}}</span>
+        </div>
+        <div class="pull-right">
+            <span translate="jwebApp.marketPlace.rating"></span> :
+        </div>
+
+        <button class="btn btn-primary" ui-sref="myMarketPlace">
+            <span translate="jwebApp.marketPlace.detail.title">&nbsp;</span>
+        </button>
+        <button class="btn btn-primary" ui-sref="myMarketPlace.news">
+            <span translate="jwebApp.marketPlace.action.gestNews">&nbsp;</span>
+        </button>
+        <button class="btn btn-primary" ui-sref="myMarketPlace.stock">
+            <span translate="jwebApp.marketPlace.action.gestStock">&nbsp;</span>
+        </button>
+        <button class="btn btn-primary" ui-sref="myMarketPlace.promotions">
+            <span translate="jwebApp.marketPlace.action.gestPromotions">&nbsp;</span>
+        </button>
+
+    </div>
+    <jh-alert></jh-alert>
+
+    <br>
+
+    <div class="form-group">
+        <div class="col-md-2">
+            <select name="selectType" id="selectType" class="form-control"
+                    ng-options="type as type.name for type in types"
+                    ng-model="type"
+                    ng-change="parseType()">
+            </select>
+        </div>
+        <div class="col-md-2">
+            <select name="selectState" id="selectState" class="form-control"
+                    ng-options="state as state.name for state in states"
+                    ng-model="state"
+                    ng-change="parseState()">
+            </select>
+        </div>
+        <div class="col-md-4">
+            <input type="string" name="path"
+                   value="" ng-model="path"
+                   ng-change="parseName()">
+        </div>
+        <button type="submit"
+                ui-sref="myMarketPlace.addProduct()"
+                class="btn btn-primary btn-sm pull-right">
+            <span class="glyphicon glyphicon-plus-sign"></span>&nbsp;<span
+            translate="jwebApp.marketPlace.action.addProduct"></span>
+        </button>
+    </div>
+    <br>
+
+    <div class="modal-body">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr jh-sort="predicate" ascending="reverse" callback="reset()">
+                    <th jh-sort-by="valid"><span translate="jwebApp.product.state">State</span></th>
+                    <th jh-sort-by="price"><span translate="jwebApp.product.price">Price</span></th>
+                    <th jh-sort-by="stock"><span translate="jwebApp.product.stock">Stock</span></th>
+                    <th jh-sort-by="sill"><span translate="jwebApp.product.sill">Sill</span></th>
+                    <th jh-sort-by="baseProduct.name"><span translate="jwebApp.product.detail.title">baseProduct</span></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody infinite-scroll="loadPage(page + 1)" infinite-scroll-disabled="links['last'] == page">
+                <tr ng-repeat="product in products track by product.id">
+                    <td>
+                        <div ng-if="product.valid == true" style="color:#01DF01">
+                            <span translate="entity.action.available"></span>
+                        </div>
+                        <div ng-if="product.valid == false" style="color:#DF0101">
+                            <span translate="entity.action.unavailable"></span>
+                        </div>
+                    </td>
+
+                    <td>{{product.price}}</td>
+                    <td>{{product.stock}}</td>
+                    <td>{{product.sill}}</td>
+                    <td>
+                        <a ui-sref="baseProduct.detail({id:product.baseProduct.id})">{{product.baseProduct.name}}</a>
+                    </td>
+
+                    <td>
+                        <button type="submit"
+                                ui-sref="product.detail({id:product.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span
+                            translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="myMarketPlace.editProduct({id:product.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <dif ng-if="product.valid == false">
+                            <button type="submit"
+                                    ng-click="available({id:product.id})"
+                                    class="btn btn-success btn-sm">
+                                <span class="glyphicon glyphicon-ok-sign"></span>&nbsp;<span
+                                translate="entity.action.available"> Available</span>
+                            </button>
+                        </dif>
+                        <dif ng-if="product.valid == true">
+                            <button type="submit"
+                                    ng-click="available({id:product.id})"
+                                    class="btn btn-warning btn-sm">
+                                <span class="glyphicon glyphicon-alert"></span>&nbsp;<span
+                                translate="entity.action.unavailable"> Unavailable</span>
+                            </button>
+                        </dif>
+                        <button type="submit"
+                                ng-click="delete({id:product.id})"
+                                class="btn btn-danger btn-sm pull-right">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span
+                            translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="modal-footer">
+        </div>
+    </div>
+    <script type="text/javascript">
+        $.fn.stars = function() {
+            return $(this).each(function() {
+                $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+            });
+        };
+
+        $(function() {
+            window.setTimeout(function(){
+                $('span.stars').stars().removeClass('hidden');
+            }, 500);
+        });
+    </script>
+</div>

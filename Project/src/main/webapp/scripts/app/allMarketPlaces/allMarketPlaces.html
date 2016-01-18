@@ -1,0 +1,49 @@
+<div>
+    <h2 translate="jwebApp.allMarketPlaces.home.title">All Marketplaces</h2>
+    <jh-alert></jh-alert>
+
+    <div class="form-group">
+        <div class="parser">
+            <div class="col-md-1">
+                <span translate="jwebApp.marketPlace.name"></span> :
+            </div>
+            <div class="col-md-2">
+                <input type="string" name="path"
+                       value="" ng-model="path"
+                       ng-change="parseName()">
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="modal-body">
+        <table class="table" id="allMarketplaces" style="table-layout: fixed;">
+            <tbody>
+            <tr ng-repeat="marketPlace in marketPlaces">
+                <td class="marketPlace">
+                    <div class="item">
+                        <h4><a href="#/marketPlaces/{{marketPlace.id}}">{{marketPlace.name}}</a></h4>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-3 text-center">
+                                <a href="#/marketPlaces/{{marketPlace.id}}">
+                                    <img class="img-responsive" src="{{marketPlace.image}}"/>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="description">{{marketPlace.description}}</div>
+                            </div>
+                        </div>
+                        &nbsp;
+                        <div class="row">
+                            <div class="col-md-6">
+                                <span translate="jwebApp.marketPlace.rating">Rating</span> : {{marketPlace.rating}}
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

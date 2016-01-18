@@ -1,0 +1,52 @@
+{
+    "jwebApp": {
+        "marketPlace": {
+            "home": {
+                "title": "MarketPlaces",
+                "createLabel": "Create a new MarketPlace",
+                "createOrEditLabel": "Create or edit a MarketPlace"
+            },
+            "created": "A new MarketPlace is created with identifier {{ param }}",
+            "updated": "A MarketPlace is updated with identifier {{ param }}",
+            "deleted": "A MarketPlace is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete MarketPlace {{ id }}?"
+            },
+            "detail": {
+                "title": "MarketPlace"
+            },
+            "name": "Name",
+            "image": "Image",
+            "description": "Description",
+            "rating": "Rating",
+            "news": "News",
+            "user": "User",
+            "product": "Product",
+            "action": {
+                "sellOn": "Sold on : ",
+                "sellBy": "Sold by : ",
+                "rating": "Rating : ",
+                "sellers": "Sold by: {{ param }} marketplace",
+                "gestProducts": "Manage Products",
+                "gestNews": "Manage News",
+                "gestPromotions": "Your Promotions",
+                "gestStock": "Your Stock",
+                "addProduct": "Add a Product",
+                "addPromotion": "Add a Promotion",
+                "addNews": "Add a News"
+            }
+        },
+        "myMarketPlace": {
+            "home": {
+                "title": "My Marketplace",
+                "subtitle": "Welcome to your Marketplace",
+                "entry": "Welcome in the Marketplace"
+            }
+        },
+        "allMarketPlaces": {
+            "home": {
+                "title": "All marketplaces"
+            }
+        }
+    }
+}

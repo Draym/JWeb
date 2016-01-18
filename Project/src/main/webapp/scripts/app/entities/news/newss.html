@@ -1,0 +1,56 @@
+<div>
+    <h2 translate="jwebApp.news.home.title">Newss</h2>
+    <jh-alert></jh-alert>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" ui-sref="news.new">
+                    <span class="glyphicon glyphicon-flash"></span> <span translate="jwebApp.news.home.createLabel">Create a new News</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr jh-sort="predicate" ascending="reverse" callback="reset()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="title"><span translate="jwebApp.news.title">Title</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date"><span translate="jwebApp.news.date">Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="content"><span translate="jwebApp.news.content">Content</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="marketPlace.name"><span translate="jwebApp.news.marketPlace">marketPlace</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="loadPage(page + 1)" infinite-scroll-disabled="links['last'] == page">
+                <tr ng-repeat="news in newss track by news.id">
+                    <td><a ui-sref="news.detail({id:news.id})">{{news.id}}</a></td>
+                    <td>{{news.title}}</td>
+                    <td>{{news.date | date:'medium'}}</td>
+                    <td>{{news.content}}</td>
+                    <td>
+                        <a ui-sref="marketPlace.detail({id:news.marketPlace.id})">{{news.marketPlace.name}}</a>
+                    </td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="news.detail({id:news.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="news.edit({id:news.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="news.delete({id:news.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

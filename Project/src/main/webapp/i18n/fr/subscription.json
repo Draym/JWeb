@@ -1,0 +1,27 @@
+{
+    "jwebApp": {
+        "subscription": {
+            "home": {
+                "title": "Subscriptions",
+                "createLabel": "Créer un nouveau Subscription",
+                "createOrEditLabel": "Créer ou éditer un Subscription"
+            },
+            "created": "Un nouveau Subscription a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Subscription avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Subscription avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Subscription {{ id }} ?"
+            },
+            "action": {
+                "subscribe": "S'Abonner",
+                "unsubscribe": "Se Désabonner"
+            },
+            "detail": {
+                "title": "Subscription"
+            },
+            "idMarketPlace": "IdMarketPlace",
+            "user": "User"
+        }
+    }
+}
+

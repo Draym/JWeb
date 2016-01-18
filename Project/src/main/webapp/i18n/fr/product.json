@@ -1,0 +1,44 @@
+{
+    "jwebApp": {
+        "product" : {
+            "home": {
+                "title": "Produits",
+                "createLabel": "Créer un nouveau produit",
+                "createOrEditLabel": "Créer ou éditer un produit"
+            },
+            "created": "Un nouveau produit a été créé avec l'identifiant {{ param }}",
+            "updated": "Le produit avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le produit avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le produit {{ id }} ?"
+            },
+            "detail": {
+                "title": "Produit",
+                "alert": "VIDE",
+                "warning": "LIMITE",
+                "good": "BON"
+            },
+            "valid": "Valide",
+            "state": "Etat",
+            "stock": "Stock",
+            "price": "Prix",
+            "sill": "Seuil",
+            "baseProduct": "BaseProduct",
+            "promotion": "Promotion",
+            "cartProductList": "CartProductList",
+            "marketPlace": "MarketPlace"
+        },
+        "allProducts": {
+            "home": {
+                "title": "Les Produits",
+                "addToCart": "Ajouter au panier",
+                "buyProduct": "Acheter le produit",
+                "myCarts": "Mes Paniers"
+            },
+            "action": {
+                "save": "Ajouter"
+            }
+        }
+    }
+}
+
