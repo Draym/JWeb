@@ -1,0 +1,26 @@
+{
+    "jwebApp": {
+        "news" : {
+            "home": {
+                "title": "News",
+                "createLabel": "Créer une nouvelle news",
+                "createOrEditLabel": "Créer ou éditer une news"
+            },
+            "created": "Une nouvelle News a été créé avec l'identifiant {{ param }}",
+            "updated": "La news avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "La news avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer la News {{ id }} ?"
+            },
+            "detail": {
+                "title": "News"
+            },
+            "title": "Titre",
+            "date": "Date",
+            "content": "Contenu",
+            "marketPlace": "Boutique",
+            "sendByMail" : "Envoyé par Email"
+        }
+    }
+}
+

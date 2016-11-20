@@ -1,0 +1,24 @@
+{
+  "generator-jhipster": {
+    "baseName": "jweb",
+    "packageName": "eu.epitech.andyet",
+    "packageFolder": "eu/epitech/andyet",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "no",
+    "useSass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "enableTranslation": true,
+    "enableSocialSignIn": false,
+    "rememberMeKey": "16ed54707e7cfdc4cf7527768986f60fcca79f78",
+    "testFrameworks": [
+      "gatling"
+    ]
+  }
+}

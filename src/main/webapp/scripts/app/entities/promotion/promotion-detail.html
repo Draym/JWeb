@@ -1,0 +1,46 @@
+
+<div>
+    <h2><span translate="jwebApp.promotion.detail.title">Promotion</span> {{promotion.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th translate="entity.detail.field">Field</th>
+                <th translate="entity.detail.value">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span translate="jwebApp.promotion.name">Name</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{promotion.name}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="jwebApp.promotion.percent">Percent</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{promotion.percent}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="jwebApp.promotion.reduction">Reduction</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{promotion.reduction}}</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

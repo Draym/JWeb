@@ -1,0 +1,134 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="page-header">{{product.baseProduct.name}}</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-9">
+        <div class="row">
+            <div class="col-md-4">
+                <img
+                    src="{{product.baseProduct.image}}"
+                    alt="{{product.baseProduct.name}}" class="img-responsive"/>
+            </div>
+            <div class="col-md-8">
+                <h4><p class="price" ng-if="product.promotion.percent == 0 && product.promotion.reduction == 0">
+                    {{product.price | currency}}
+                </p>
+
+                    <p class="price" ng-if="product.promotion.percent != 0 || product.promotion.reduction != 0">
+                        <del>{{product.price | currency}}</del>
+                        <ins>{{product.price - product.promotion.reduction - product.price * product.promotion.percent /
+                            100 | currency}}
+                        </ins>
+                        <br/>
+                        <span
+                            ng-if="product.promotion.reduction != 0">-{{product.promotion.reduction | currency}}</span>
+                        <span ng-if="product.promotion.percent != 0">-{{product.promotion.percent}}%</span>
+                    </p>
+                </h4>
+                <hr/>
+
+                <div class="col-md-4 hidden-xs hidden-sm">
+                    <a href="#/marketPlaces/{{product.marketPlace.id}}" title="{{product.marketPlace.name}}">
+                        <img src="{{product.marketPlace.image}}" alt="{{product.marketPlace.name}}"
+                             class="img-responsive"/>
+                    </a>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-xs-8">
+                            <span translate="jwebApp.marketPlace.action.sellOn">Sold on : </span><a
+                            href="#/marketPlaces/{{product.marketPlace.id}}"
+                            title="{{product.marketPlace.name}}">{{product.marketPlace.name}}</a>
+                        </div>
+                        <div class="col-xs-4 text-right">
+                            <div class="rating pull-right">
+												<span class="stars hidden" title="{{product.marketPlace.rating}}">
+													{{product.marketPlace.rating}}
+												</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8">
+                            <span translate="jwebApp.marketPlace.action.sellBy">Sold by : </span>
+                            <span>{{product.marketPlace.user.login}}</span>
+                        </div>
+                        <div class="col-xs-4 text-right">
+                            <a href="mailto:{{product.marketPlace.user.email}}" class="btn btn-sm btn-info">
+                                <span class="glyphicon glyphicon-envelope"></span>
+                                <span translate="global.action.contactMe">Contact me</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col-md-12">
+                <span>{{product.baseProduct.description}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="well">
+            <p class="lead">
+                <span translate="jwebApp.marketPlace.action.rating">Rating :</span>
+                <small>
+                    <select name="myrating" id="myrating" ng-change="updateRating()" ng-model="myrating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </small>
+            </p>
+            <div class="rating">
+                <span class="stars hidden" title="{{product.baseProduct.rating}}">{{product.baseProduct.rating}}</span>
+            </div>
+
+            <p class="lead">
+                <span translate="jwebApp.product.stock">Stock :</span>
+                <br/>
+                {{product.stock}}
+            </p>
+
+            <form>
+                <div class="form-group">
+                    <label for="quantity" translate="jwebApp.cartProductList.quantity">Quantity :</label>
+                    <input class="form-control" type="number" min="1" max="{{product.stock}}" step="1" value="1"
+                           name="quantity"
+                           ng-model="quantity"
+                           id="quantity"/>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="form-control btn btn-primary"
+                            ui-sref="product.addProductDetail({id:product.id, nbr:quantity})">
+                        <span class="glyphicon glyphicon-plus-sign"></span>
+                        <span translate="jwebApp.allProducts.home.addToCart">Add to the Cart</span>
+                    </button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <a ui-sref="product.list({id: product.id})">
+        <span class="sellers">Sold by: {{products.length}} market place</span>
+    </a>
+    <script type="text/javascript">
+        $.fn.stars = function () {
+            return $(this).each(function () {
+                $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+            });
+        };
+
+        $(function () {
+            window.setTimeout(function () {
+                $('span.stars').stars().removeClass('hidden');
+            }, 500);
+        });
+    </script>
+
+</div>

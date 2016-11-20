@@ -1,0 +1,131 @@
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myProductLabel" translate="jwebApp.product.home.createLabel"></h4>
+    </div>
+
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+
+        <label class="control-label" translate="jwebApp.baseProduct.name" for="field_name">Name</label>
+        <input type="text" class="form-control" name="name" id="field_name"
+               ng-model="baseProduct.name"
+               required ng-minlength="1"/>
+
+        <div ng-show="editForm.name.$invalid">
+            <p class="help-block"
+               ng-show="editForm.name.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+
+            <p class="help-block"
+               ng-show="editForm.name.$error.minlength" translate="entity.validation.minlength" translate-value-min="1">
+                This field is required to be at least 1 characters.
+            </p>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="jwebApp.baseProduct.description"
+                   for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                   ng-model="baseProduct.description"
+                   required ng-minlength="1"/>
+
+            <div ng-show="editForm.description.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.description.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+
+                <p class="help-block"
+                   ng-show="editForm.description.$error.minlength" translate="entity.validation.minlength"
+                   translate-value-min="1">
+                    This field is required to be at least 1 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="jwebApp.baseProduct.image" for="field_image">Image</label>
+            <input type="text" class="form-control" name="image" id="field_image"
+                   ng-model="baseProduct.image"
+                   required ng-minlength="1"/>
+
+            <div ng-show="editForm.image.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.image.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+
+                <p class="help-block"
+                   ng-show="editForm.image.$error.minlength" translate="entity.validation.minlength"
+                   translate-value-min="1">
+                    This field is required to be at least 1 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="jwebApp.product.price" for="field_price">Price</label>
+            <input type="number" class="form-control" name="price" id="field_price"
+                   ng-model="product.price"
+                   required min="0"/>
+
+            <div ng-show="editForm.price.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.price.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+
+                <p class="help-block"
+                   ng-show="editForm.price.$error.min" translate="entity.validation.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+
+                <p class="help-block"
+                   ng-show="editForm.price.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="jwebApp.product.sill" for="field_sill">Sill</label>
+            <input type="number" class="form-control" name="sill" id="field_sill"
+                   ng-model="product.sill"
+                   required min="0"/>
+
+            <div ng-show="editForm.sill.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.sill.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+
+                <p class="help-block"
+                   ng-show="editForm.sill.$error.min" translate="entity.validation.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+
+                <p class="help-block"
+                   ng-show="editForm.sill.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label translate="jwebApp.baseProduct.type" for="field_type">type</label>
+            <select class="form-control" id="field_type" name="type" ng-model="baseProduct.type"
+                    ng-options="type as type.name for type in types track by type.id">
+                <option value=""></option>
+            </select>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span
+            translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

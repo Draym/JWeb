@@ -1,0 +1,23 @@
+{
+    "jwebApp": {
+        "type" : {
+            "home": {
+                "title": "Types",
+                "createLabel": "Créer un nouveau Type",
+                "createOrEditLabel": "Créer ou éditer un Type"
+            },
+            "created": "Un nouveau Type a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Type avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Type avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Type {{ id }} ?"
+            },
+            "detail": {
+                "title": "Type"
+            },
+            "name": "Name",
+            "baseProduct": "BaseProduct"
+        }
+    }
+}
+

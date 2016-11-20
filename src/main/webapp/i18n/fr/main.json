@@ -1,0 +1,24 @@
+{
+    "main": {
+        "title": "Bienvenue, Aventuriers !",
+        "subtitle": "Ceci est votre page d'accueil",
+        "detail": {
+            "news": "Voici quelques annonces de notre boutique officielle :",
+            "market": "Vous pouvez y accéder en cliquant ",
+            "marketButton": "Ici"
+        },
+        "logged": {
+            "message": "Vous êtes connecté en tant que \"{{username}}\"."
+        },
+        "question": "Si vous avez des questions à propos de JHipster:",
+        "link": {
+            "homepage": "Page d'accueil de JHipster",
+            "stackoverflow": "JHipster sur Stack Overflow",
+            "bugtracker": "JHipster bug tracker",
+            "chat": "JHipster public chat room",
+            "contact": "Contactez-nous sur Twitter @java_hipster"
+        },
+        "like": "Si vous aimez JHipster, donnez nous une étoile sur",
+        "github": "Github"
+    }
+}

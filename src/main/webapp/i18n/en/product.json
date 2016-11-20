@@ -1,0 +1,43 @@
+{
+    "jwebApp": {
+        "product": {
+            "home": {
+                "title": "Products",
+                "createLabel": "Create a new Product",
+                "createOrEditLabel": "Create or edit a Product"
+            },
+            "created": "A new Product is created with identifier {{ param }}",
+            "updated": "A Product is updated with identifier {{ param }}",
+            "deleted": "A Product is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Product {{ id }}?"
+            },
+            "detail": {
+                "title": "Product",
+                "alert": "EMPTY",
+                "warning": "LIMIT",
+                "good": "GOOD"
+            },
+            "valid": "Valid",
+            "state": "State",
+            "stock": "Stock",
+            "price": "Price",
+            "sill": "Sill",
+            "baseProduct": "BaseProduct",
+            "promotion": "Promotion",
+            "cartProductList": "CartProductList",
+            "marketPlace": "MarketPlace"
+        },
+        "allProducts": {
+            "home": {
+                "title": "All Products",
+                "addToCart": "Add to the Cart",
+                "buyProduct": "Buy Product",
+                "myCarts": "My Carts"
+            },
+            "action": {
+                "save": "Add"
+            }
+        }
+    }
+}

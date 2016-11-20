@@ -1,0 +1,25 @@
+{
+    "jwebApp": {
+        "news" : {
+            "home": {
+                "title": "News",
+                "createLabel": "Create a new news",
+                "createOrEditLabel": "Create or edit a news"
+            },
+            "created": "A new news is created with identifier {{ param }}",
+            "updated": "A news is updated with identifier {{ param }}",
+            "deleted": "A news is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete News {{ id }}?"
+            },
+            "detail": {
+                "title": "News"
+            },
+            "title": "Title",
+            "date": "Date",
+            "content": "Content",
+            "marketPlace": "MarketPlace",
+            "sendByMail" : "Envoyé par Email"
+        }
+    }
+}
