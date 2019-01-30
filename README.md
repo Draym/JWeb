@@ -69,7 +69,7 @@ The project deserves a public API with a detailled documentation (available with
 <img src="README-images/jw-orders.PNG" height="300">
 <br/>
 
-###### Sellor access
+###### Seller access
 
 - Marketplace
 <img src="README-images/jw-marketplace.PNG" height="300">
