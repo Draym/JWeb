@@ -51,29 +51,28 @@ The project deserves a public API with a detailled documentation (available with
 -------------------------------------------------------------------------------------------  
 ## Component:  
 
-<br/>
 ###### Client access
 - Main page with newsletter
 <img src="README-images/jw-home.PNG" height="400">
 
 - Login page
-<img src="README-images/jw-login.PNG" height="100">
+<img src="README-images/jw-login.PNG" height="200">
 
 - Products page
-<img src="README-images/jw-products.PNG" height="300">
+<img src="README-images/jw-products.PNG" height="400">
 
 - Product page
-<img src="README-images/jw-product.PNG" height="200">
-<img src="README-images/jw-product2.PNG" height="200">
+<img src="README-images/jw-product.PNG" height="300">
+<img src="README-images/jw-product2.PNG" height="300">
 
 - Orders
-<img src="README-images/jw-orders.PNG" height="200">
-
+<img src="README-images/jw-orders.PNG" height="300">
 <br/>
+
 ###### Sellor access
 
 - Marketplace
 <img src="README-images/jw-marketplace.PNG" height="300">
 
 - News
-<img src="README-images/jw-news.PNG" height="200">
+<img src="README-images/jw-news.PNG" height="300">
