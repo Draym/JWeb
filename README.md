@@ -19,7 +19,6 @@ The project deserves a public API with a detailled documentation (available with
 - login
 - email available (notification, change password)
 - multi language (actually french and english : i18n)
-<br/>
 
 ###### Admin access (from website)
 - manage entities with UI for each components
@@ -28,7 +27,6 @@ The project deserves a public API with a detailled documentation (available with
 - Logs
 - API documentation 
 
-<br/>
 ###### Client
 - access to a list of products
 - search by key / sort products
